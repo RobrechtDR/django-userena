@@ -158,12 +158,12 @@ must also connect itself to the :class:`User` model of Django.
 
 .. code-block:: python
 
-    from django.contrib.auth.models import User
+    from django.contrib.auth import get_user_model
     from django.utils.translation import ugettext as _
     from userena.models import UserenaBaseProfile
     
     class MyProfile(UserenaBaseProfile):
-        user = models.OneToOneField(User,
+        user = models.OneToOneField(get_user_model(),
                                     unique=True,
                                     verbose_name=_('user'),
                                     related_name='my_profile') 
